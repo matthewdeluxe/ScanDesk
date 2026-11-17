@@ -13,3 +13,9 @@ publish/
 
 # Local data
 crash.log
+
+# macOS build output
+macOS/build/
+xcuserdata/
+*.xcuserstate
+.DS_Store
