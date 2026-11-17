@@ -8,13 +8,14 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             SidebarView(model: model)
-                .navigationSplitViewColumnWidth(min: 290, ideal: 320, max: 400)
+                .navigationSplitViewColumnWidth(min: 340, ideal: 370, max: 440)
         } detail: {
             PagesView(model: model)
                 .safeAreaInset(edge: .bottom, spacing: 0) {
-                    StatusBar(model: model)
+                    BottomBar(model: model, clear: { confirmingClear = true })
                 }
         }
+        .tint(Palette.violet)   // the Windows version's selection and focus color
         .navigationTitle("ScanDesk")
         .navigationSubtitle(subtitle)
         .toolbar { toolbar }
@@ -37,8 +38,8 @@ struct ContentView: View {
             : "\(model.pages.count) page\(model.pages.count == 1 ? "" : "s")"
     }
 
-    /// Toolbar items are drawn on Liquid Glass automatically. Related buttons are grouped so they
-    /// share one glass capsule, and the main action (Scan) uses the prominent glass style.
+    /// Toolbar items are drawn on Liquid Glass automatically. Related page tools share one glass
+    /// capsule. The big actions (Scan, Save PDF, Clear) float at the bottom instead, like the Windows version.
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
         ToolbarItemGroup {
@@ -59,37 +60,22 @@ struct ContentView: View {
             Button("Rotate Right", systemImage: "rotate.right") { model.rotateSelection(clockwise: true) }
                 .help("Rotate the selected pages right")
                 .disabled(!model.canEditSelection)
-            Button("Delete", systemImage: "trash") { model.deleteSelection() }
-                .help("Delete the selected pages")
-                .disabled(!model.canEditSelection)
-        }
-
-        ToolbarSpacer(.fixed)
-
-        ToolbarItemGroup {
-            Button("Clear", systemImage: "xmark.bin") { confirmingClear = true }
-                .help("Remove all pages and start over")
-                .disabled(model.pages.isEmpty || model.isBusy)
-            Button("Save PDF", systemImage: "square.and.arrow.down") { Task { await model.save() } }
-                .help("Save all pages as one PDF")
-                .disabled(model.pages.isEmpty || model.isBusy)
         }
 
         ToolbarSpacer(.fixed)
 
         ToolbarItem {
-            if model.isScanning {
-                Button("Stop", systemImage: "stop.fill") { model.stop() }
-                    .buttonStyle(.glassProminent)
-                    .tint(.red)
-                    .help("Stop after the current page")
-            } else {
-                Button("Scan", systemImage: "scanner") { Task { await model.scan() } }
-                    .buttonStyle(.glassProminent)
-                    .tint(.green)
-                    .help("Scan everything in the feeder")
-                    .disabled(model.isBusy || model.selectedScanner == nil)
-            }
+            Button("Delete Page", systemImage: "trash") { model.deleteSelection() }
+                .help("Delete the selected pages")
+                .disabled(!model.canEditSelection)
+        }
+
+        ToolbarSpacer(.flexible)
+
+        ToolbarItem {
+            Button("Add Images or PDFs", systemImage: "photo.badge.plus") { importing = true }
+                .help("Add images or PDFs as pages")
+                .disabled(model.isBusy)
         }
     }
 }

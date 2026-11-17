@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B46BDBA3537874941C20022 /* ScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F178B4B121AA9FC970A53280 /* ScannerService.swift */; };
+		0B90AB0A427BF602FD7D0C7B /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA3D268440023810CC508A9 /* Palette.swift */; };
+		3BEC4DEB259CEAB58A82A114 /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D68C4949F37EA7128B9BA /* Tiles.swift */; };
 		433E33CA799E5CF0D1107A08 /* PDFWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0837A8417F3C12890245A8A /* PDFWriter.swift */; };
 		4356DA2AF4B8FA9951852DC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EE0870C9854147E12F289A8 /* Assets.xcassets */; };
 		49CD5057370FC42D1BA9E1B7 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224B451AD661869C7FC41B1 /* StatusBar.swift */; };
@@ -27,6 +29,7 @@
 		6E0C8CF7BF818F2E9BEA91FD /* ScanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModel.swift; sourceTree = "<group>"; };
 		82774C212B97E49E2C7ACA97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89410002B760D985629DBB59 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9BA3D268440023810CC508A9 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		A0E24D76D5231197B738D6C0 /* ScanDeskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeskApp.swift; sourceTree = "<group>"; };
 		A224B451AD661869C7FC41B1 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		AA1611F5CD6B5765995593B7 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		F0837A8417F3C12890245A8A /* PDFWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFWriter.swift; sourceTree = "<group>"; };
 		F178B4B121AA9FC970A53280 /* ScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerService.swift; sourceTree = "<group>"; };
 		F3CBBF8A3AE54D71058808FC /* ScanDesk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScanDesk.entitlements; sourceTree = "<group>"; };
+		F54D68C4949F37EA7128B9BA /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -52,6 +56,7 @@
 				82774C212B97E49E2C7ACA97 /* ContentView.swift */,
 				27D17E3483F96CAA673F338F /* PageProcessing.swift */,
 				69F153936E8268FD4AE05FDF /* PagesView.swift */,
+				9BA3D268440023810CC508A9 /* Palette.swift */,
 				F0837A8417F3C12890245A8A /* PDFWriter.swift */,
 				F3CBBF8A3AE54D71058808FC /* ScanDesk.entitlements */,
 				A0E24D76D5231197B738D6C0 /* ScanDeskApp.swift */,
@@ -60,6 +65,7 @@
 				89410002B760D985629DBB59 /* Settings.swift */,
 				AA1611F5CD6B5765995593B7 /* SidebarView.swift */,
 				A224B451AD661869C7FC41B1 /* StatusBar.swift */,
+				F54D68C4949F37EA7128B9BA /* Tiles.swift */,
 			);
 			path = ScanDesk;
 			sourceTree = "<group>";
@@ -146,12 +152,14 @@
 				433E33CA799E5CF0D1107A08 /* PDFWriter.swift in Sources */,
 				6D789AC7712B04BB08B6D69A /* PageProcessing.swift in Sources */,
 				FBCEC132A5A51C4C0A7F12D2 /* PagesView.swift in Sources */,
+				0B90AB0A427BF602FD7D0C7B /* Palette.swift in Sources */,
 				EFDF0FF6C27DFBC26FE9F178 /* ScanDeskApp.swift in Sources */,
 				D09814756B3F0DA651D4513B /* ScanModel.swift in Sources */,
 				0B46BDBA3537874941C20022 /* ScannerService.swift in Sources */,
 				678125A38FDEF11CD5619DC2 /* Settings.swift in Sources */,
 				B641B91C857AB5DFC1C6A969 /* SidebarView.swift in Sources */,
 				49CD5057370FC42D1BA9E1B7 /* StatusBar.swift in Sources */,
+				3BEC4DEB259CEAB58A82A114 /* Tiles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

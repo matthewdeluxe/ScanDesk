@@ -56,12 +56,14 @@ dotnet publish -c Release -r win-x64 --self-contained
 
 # macOS
 
-A native SwiftUI app in [`macOS/`](macOS). It follows Apple's Liquid Glass design for macOS 26:
+A native SwiftUI app in [`macOS/`](macOS). It keeps the Windows version's look (its colors, big tiles and big buttons) and builds it on Apple's Liquid Glass design for macOS 26:
 
-- **Sidebar and toolbar** use the system's standard components, so macOS draws them as Liquid Glass. The sidebar floats over the window, and toolbar buttons are grouped into shared glass capsules.
-- **Scan** is the one prominent (tinted glass) button, as Apple recommends for a view's main action. It turns into a red **Stop** while scanning.
-- **The status bar** is a glass capsule floating above the pages, which scroll underneath it.
-- **The page grid** is the content layer, so it stays solid and easy to read. Glass is kept to the controls on top, never stacked glass on glass.
+- **Big colored tiles** for every option in the sidebar, in the Windows palette (sky, pink, violet, slate, teal, blue, orange, amber, green). A chosen tile fills with its color and shows a checkmark. The sidebar itself is a floating Liquid Glass panel, and the tiles inside it use solid color, because Apple advises against stacking glass on glass.
+- **Big SCAN, Save PDF and Clear buttons** float in tinted glass at the bottom of the window, in the Windows button colors (green, blue-indigo, rose). SCAN turns into an orange STOP while scanning, and the two morph into each other.
+- **The Windows header gradient** (indigo → purple → pink → orange) washes softly across the top of the page area and shows through the glass sidebar and toolbar. The sidebar shows the app icon, name and tagline, as the Windows header did.
+- **Pages sit on white cards** with violet selection, like the Windows page list. They're the content layer, so they stay solid and easy to read.
+- **The toolbar** keeps just the page tools (move, rotate, delete, add files), grouped into glass capsules.
+- **Light and dark mode** are both supported. With Reduce Transparency or Increase Contrast turned on, macOS replaces the glass with solid colors automatically.
 
 ## Features
 
@@ -106,7 +108,9 @@ The app isn't sandboxed (so it can save straight into any folder you pick, like 
 | `macOS/ScanDesk/ContentView.swift` | Window layout and toolbar |
 | `macOS/ScanDesk/SidebarView.swift` | Scanner and option controls |
 | `macOS/ScanDesk/PagesView.swift` | Page grid, selection, drag to reorder, drop and iPhone import |
-| `macOS/ScanDesk/StatusBar.swift` | Floating glass status bar |
+| `macOS/ScanDesk/StatusBar.swift` | Floating glass status line and big SCAN / Save PDF / Clear buttons |
+| `macOS/ScanDesk/Tiles.swift` | Colored option tiles and big glass action buttons |
+| `macOS/ScanDesk/Palette.swift` | The Windows color palette |
 | `macOS/ScanDesk/ScanModel.swift` | App state and actions (the equivalent of `MainWindow.xaml.cs`) |
 | `macOS/ScanDesk/ScannerService.swift` | Scanner discovery and scanning with ImageCaptureCore |
 | `macOS/ScanDesk/PageProcessing.swift` | Blank-page detection, straightening, rotation, thumbnails, importing |
