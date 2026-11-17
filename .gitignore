@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+publish/
+*.msi
+*.zip
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+# Local data
+crash.log
